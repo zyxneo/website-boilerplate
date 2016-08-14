@@ -1,5 +1,5 @@
 # website-boilerplate
-https://img.shields.io/badge/development-active-4CD80A.svg
+!(https://img.shields.io/badge/development-active-4CD80A.svg)
 front-end template for building fast websites
 
 ## Table of contents
