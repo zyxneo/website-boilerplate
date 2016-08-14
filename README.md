@@ -1,11 +1,12 @@
-# website-boilerplate https://img.shields.io/badge/development-active-4CD80A.svg
- front-end template for building fast websites
+# website-boilerplate
+https://img.shields.io/badge/development-active-4CD80A.svg
+front-end template for building fast websites
 
 ## Table of contents
 
-- [What's inside?](#What's inside?)
-- [Dependencies](#Dependencies)
-- [Useful links](#Useful links)
+- [What's inside?](#whats-inside?)
+- [Dependencies](#dependencies)
+- [Useful links](#useful-links)
 
 ## What's inside?
 This boilerplate is a mixture of:
