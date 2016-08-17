@@ -3,6 +3,7 @@
 
 // Change this path to your destination:
 
+var wwwRoot = 'views/';
 var buildPath = 'views/build';
 
 /*****************************************/
@@ -36,12 +37,14 @@ module.exports = function (grunt) {
 
         settings: {
             // Working paths
+            wwwSource: 'source/',
             scriptsSourceDir: 'source/scripts/',
             stylesSourceDir: 'source/styles/',
             imagesSourceDir: 'source/images/',
             fontsSourceDir: 'source/fonts/',
 
             // Distribution paths
+            wwwRoot: wwwRoot,
             build: buildPath,
             jsDir: buildPath + '/scripts/',
             cssDir: buildPath + '/styles/',
@@ -236,6 +239,15 @@ module.exports = function (grunt) {
             flatten: true,
             filter: 'isFile',
           },
+          systemFiles: {
+            files: {
+              '<%= settings.wwwRoot %>.htaccess'        : '<%= settings.wwwSource %>.htaccess',
+              '<%= settings.wwwRoot %>browserconfig.xml': '<%= settings.wwwSource %>browserconfig.xml',
+              '<%= settings.wwwRoot %>crossdomain.xml'  : '<%= settings.wwwSource %>crossdomain.xml',
+              '<%= settings.wwwRoot %>humans.txt'       : '<%= settings.wwwSource %>humans.txt',
+              '<%= settings.wwwRoot %>robots.txt'       : '<%= settings.wwwSource %>robots.txt',
+            }
+          }
         },
 
         imagemin: {
@@ -292,12 +304,15 @@ module.exports = function (grunt) {
 
     })
 
+    // initalize only once.
+    grunt.registerTask('init', ['copy:systemFiles']);
+
     // CSS  distribution task.
     grunt.registerTask('styles', ['sass', 'postcss']);
 
     // JS distribution task.
     grunt.registerTask('scripts', ['babel:dev', 'concat', 'babel:dist', 'stamp', 'uglify:core', 'copy:vendorScripts']);
-    
+
     grunt.registerTask('compile', ['clean', 'styles', 'scripts']);
     grunt.registerTask('default', ['compile']);
 }

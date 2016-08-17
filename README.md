@@ -31,3 +31,6 @@ This boilerplate is a mixture of:
 
 - [Bootstrap v4-alpha docs](http://v4-alpha.getbootstrap.com/getting-started/introduction/)
 - https://npmcdn.com/
+- http://imagesloaded.desandro.com/
+- http://kenwheeler.github.io/slick/
+- http://fotorama.io/
