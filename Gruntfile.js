@@ -231,6 +231,10 @@ module.exports = function (grunt) {
           core: {
             src: '<%= concat.bootstrap.dest %>',
             dest: '<%= settings.jsDir %>/<%= pkg.name %>.min.js'
+          },
+          main: {
+            src: '<%= settings.scriptsSourceDir %>/main.js',
+            dest: '<%= settings.jsDir %>/main.js'
           }
         },
 
@@ -240,6 +244,14 @@ module.exports = function (grunt) {
             cwd: '<%= settings.scriptsSourceDir %>vendor',
             src: '**',
             dest: '<%= settings.jsDir %>vendor',
+            flatten: true,
+            filter: 'isFile',
+          },
+          vendorStyles: {
+            expand: true,
+            cwd: '<%= settings.stylesSourceDir %>vendor',
+            src: '**',
+            dest: '<%= settings.cssDir %>vendor',
             flatten: true,
             filter: 'isFile',
           },
@@ -260,6 +272,14 @@ module.exports = function (grunt) {
             flatten: true,
             filter: 'isFile',
           },
+          favicon: {
+            expand: true,
+            cwd: '<%= settings.imagesSourceDir %>/favicon',
+            src: '**',
+            dest: '<%= settings.imagesDir %>/favicon',
+            flatten: true,
+            filter: 'isFile',
+          },
         },
 
         imagemin: {
@@ -270,7 +290,7 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     cwd: '<%= settings.imagesSourceDir %>',
-                    src: ['**/*.{png,jpg,gif,svg}'],
+                    src: ['**/*.{png,jpg,gif,svg}', '!favicon/**'],
                     dest: '<%= settings.imagesDir %>'
                 }]
             }
@@ -311,10 +331,10 @@ module.exports = function (grunt) {
     grunt.registerTask('styles', ['sass:dist', 'postcss']);
 
     // JS distribution task.
-    grunt.registerTask('scripts', ['babel:dev', 'concat', 'babel:dist', 'stamp', 'uglify:core', 'copy:vendorScripts']);
+    grunt.registerTask('scripts', ['babel:dev', 'concat', 'babel:dist', 'stamp', 'uglify:core', 'uglify:main', 'copy:vendorScripts', 'copy:vendorStyles']);
 
     // Images distribution task.
-    grunt.registerTask('images', ['newer:imagemin']);
+    grunt.registerTask('images', ['copy:favicon', 'newer:imagemin']);
 
     // Fonts distribution task.
     grunt.registerTask('fonts', ['copy:fonts']);
