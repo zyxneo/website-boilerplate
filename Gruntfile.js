@@ -17,19 +17,10 @@ module.exports = function (grunt) {
     // var os = require('os');
     // var path = require('path');
 
-    grunt.loadNpmTasks('grunt-babel');
-    grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-imagemin');
-    grunt.loadNpmTasks('grunt-postcss');
-    grunt.loadNpmTasks('grunt-sass');
-    grunt.loadNpmTasks('grunt-scss-lint');
-    grunt.loadNpmTasks('grunt-stamp');
-    grunt.loadNpmTasks('grunt-svgmin');
+    require('load-grunt-tasks')(grunt);
+
+    // measures the time each task takes
+    require('time-grunt')(grunt);
 
     grunt.initConfig({
 
@@ -73,10 +64,23 @@ module.exports = function (grunt) {
 
         sass: {
             options: {
-                precision: 6,
-                sourceComments: false,
+                outputStyle: 'compressed' // Default: nested Values: nested, expanded, compact, compressed
+            },
+            dev: {
+            options: {
+                sourceComments: true,
                 sourceMap: true,
                 outputStyle: 'expanded'
+            },
+              files: [
+                  {
+                      expand: true,
+                      cwd: '<%= settings.stylesSourceDir %>',
+                      src: ['**/*.{scss,sass}'],
+                      dest: '<%= settings.cssDir %>',
+                      ext: '.css'
+                  }
+              ]
             },
             dist: {
               files: [
@@ -247,7 +251,15 @@ module.exports = function (grunt) {
               '<%= settings.wwwRoot %>humans.txt'       : '<%= settings.wwwSource %>humans.txt',
               '<%= settings.wwwRoot %>robots.txt'       : '<%= settings.wwwSource %>robots.txt',
             }
-          }
+          },
+          fonts: {
+            expand: true,
+            cwd: '<%= settings.fontsSourceDir %>',
+            src: '**',
+            dest: '<%= settings.fontsDir %>',
+            flatten: true,
+            filter: 'isFile',
+          },
         },
 
         imagemin: {
@@ -257,62 +269,57 @@ module.exports = function (grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: '<%= settings.imagesDir %>src/',
-                    src: ['**/*.{png,jpg,gif}'],
-                    dest: '<%= settings.imagesDir %>build'
+                    cwd: '<%= settings.imagesSourceDir %>',
+                    src: ['**/*.{png,jpg,gif,svg}'],
+                    dest: '<%= settings.imagesDir %>'
                 }]
             }
         },
 
-        svgmin: {
-            options: {
-                plugins: [
-                    { removeViewBox: false },
-                    { removeUselessStrokeAndFill: false },
-                    { removeEmptyAttrs: false },
-                    { sortAttrs: true },
-                    {
-                        cleanupNumericValues: {
-                            floatPrecision: 1
-                        }
-                    }
-                ]
-            },
-            dist: {
-                files: [{
-                    expand: true,
-                    cwd: '<%= settings.imagesDir %>src/',
-                    src: '{,*/}*.svg',
-                    dest: '<%= settings.imagesDir %>build',
-                    ext: '.svg'
-                }]
-            }
+        concurrent: {
+            clean: ['clean'],
+            dist: ['styles', 'scripts', 'images', 'fonts']
         },
 
         watch: {
             options: { livereload: true },
             styles: {
                 files: ['<%= settings.stylesSourceDir %>**/*.{scss,sass,css}'],
-                tasks: ['styles']
+                tasks: ['sass:dev', 'postcss']
             },
             scripts: {
                 files: ['<%= settings.scriptsSourceDir %>**/*.js'],
                 tasks: ['scripts']
+            },
+            images: {
+                files: ['<%= settings.imagesSourceDir %>**/*.{png,jpg,gif,svg}'],
+                tasks: ['images']
+            },
+            fonts: {
+                files: ['<%= settings.fontsSourceDir %>**/*.*'],
+                tasks: ['fonts']
             }
         },
 
 
     })
 
-    // initalize only once.
+    // initalize !only once!
     grunt.registerTask('init', ['copy:systemFiles']);
 
     // CSS  distribution task.
-    grunt.registerTask('styles', ['sass', 'postcss']);
+    grunt.registerTask('styles', ['sass:dist', 'postcss']);
 
     // JS distribution task.
     grunt.registerTask('scripts', ['babel:dev', 'concat', 'babel:dist', 'stamp', 'uglify:core', 'copy:vendorScripts']);
 
-    grunt.registerTask('compile', ['clean', 'styles', 'scripts']);
+    // Images distribution task.
+    grunt.registerTask('images', ['newer:imagemin']);
+
+    // Fonts distribution task.
+    grunt.registerTask('fonts', ['copy:fonts']);
+
+    // Build (Compile, dist, production) task
+    grunt.registerTask('compile', ['concurrent:clean', 'concurrent:dist']);
     grunt.registerTask('default', ['compile']);
 }

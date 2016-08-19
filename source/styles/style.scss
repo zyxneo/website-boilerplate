@@ -1,11 +1,13 @@
 
 @import "bootstrap/bootstrap";
 
-/*
-// testing
+@import "functions";
 
+
+// testing
+/*
 body {
-    background: red;
+    background: image-url("test.png") no-repeat 50% 0;
 }
 
 // test autoprefixter

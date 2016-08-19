@@ -29,8 +29,19 @@ This boilerplate is a mixture of:
 
 ## Useful links:
 
+### Documentation
+
 - [Bootstrap v4-alpha docs](http://v4-alpha.getbootstrap.com/getting-started/introduction/)
-- https://npmcdn.com/
+- [Migrating Bootstrap to v4](http://v4-alpha.getbootstrap.com/migration/)
+- [Grunt Boilerplate](http://www.integralist.co.uk/posts/grunt-boilerplate.html)
+
+### Programs
+
+- [Blisk](https://blisk.io)
+
+### Extensions
 - http://imagesloaded.desandro.com/
 - http://kenwheeler.github.io/slick/
 - http://fotorama.io/
+
+- https://npmcdn.com/
