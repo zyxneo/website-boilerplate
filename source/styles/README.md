@@ -1,5 +1,6 @@
 # Architecture for a Sass Project
 
+```
 sass/ 
 | 
 |– base/ 
@@ -47,3 +48,4 @@ sass/
 | 
 | 
 `– main.scss             # primary Sass file 
+```
