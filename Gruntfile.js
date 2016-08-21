@@ -20,7 +20,7 @@ module.exports = function (grunt) {
     require('load-grunt-tasks')(grunt);
 
     // measures the time each task takes
-    require('time-grunt')(grunt);
+    // require('time-grunt')(grunt);
 
     grunt.initConfig({
 
@@ -228,12 +228,12 @@ module.exports = function (grunt) {
             mangle: true,
             preserveComments: /^!|@preserve|@license|@cc_on/i
           },
-          core: {
+          bootstrap: {
             src: '<%= concat.bootstrap.dest %>',
             dest: '<%= settings.jsDir %>/<%= pkg.name %>.min.js'
           },
           main: {
-            src: '<%= settings.scriptsSourceDir %>/main.js',
+            src: '<%= settings.scriptsSourceDir %>/*.js',
             dest: '<%= settings.jsDir %>/main.js'
           }
         },
@@ -298,7 +298,7 @@ module.exports = function (grunt) {
 
         concurrent: {
             clean: ['clean'],
-            dist: ['styles', 'scripts', 'images', 'fonts']
+            dist: ['styles', 'bootstrap-scripts', 'scripts', 'images', 'fonts']
         },
 
         watch: {
@@ -331,7 +331,8 @@ module.exports = function (grunt) {
     grunt.registerTask('styles', ['sass:dist', 'postcss']);
 
     // JS distribution task.
-    grunt.registerTask('scripts', ['babel:dev', 'concat', 'babel:dist', 'stamp', 'uglify:core', 'uglify:main', 'copy:vendorScripts', 'copy:vendorStyles']);
+    grunt.registerTask('bootstrap-scripts', ['babel:dev', 'concat:bootstrap', 'babel:dist', 'stamp:bootstrap', 'uglify:bootstrap']);
+    grunt.registerTask('scripts', ['uglify:main', 'copy:vendorScripts', 'copy:vendorStyles']);
 
     // Images distribution task.
     grunt.registerTask('images', ['copy:favicon', 'newer:imagemin']);
