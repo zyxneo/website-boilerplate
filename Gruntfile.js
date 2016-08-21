@@ -6,6 +6,9 @@
 var wwwRoot = 'views/';
 var buildPath = 'views/build';
 
+// http://gruntjs.com/getting-started
+// http://www.integralist.co.uk/posts/grunt-boilerplate.html
+
 /*****************************************/
 
 module.exports = function (grunt) {
@@ -298,7 +301,7 @@ module.exports = function (grunt) {
 
         concurrent: {
             clean: ['clean'],
-            dist: ['styles', 'bootstrap-scripts', 'scripts', 'images', 'fonts']
+            dist: ['styles', 'bootstrap-scripts', 'scripts', 'images', 'fonts', 'copy:vendorStyles', 'copy:vendorScripts', 'copy:favicon', ]
         },
 
         watch: {
@@ -332,10 +335,10 @@ module.exports = function (grunt) {
 
     // JS distribution task.
     grunt.registerTask('bootstrap-scripts', ['babel:dev', 'concat:bootstrap', 'babel:dist', 'stamp:bootstrap', 'uglify:bootstrap']);
-    grunt.registerTask('scripts', ['uglify:main', 'copy:vendorScripts', 'copy:vendorStyles']);
+    grunt.registerTask('scripts', ['uglify:main']);
 
     // Images distribution task.
-    grunt.registerTask('images', ['copy:favicon', 'newer:imagemin']);
+    grunt.registerTask('images', ['newer:imagemin']);
 
     // Fonts distribution task.
     grunt.registerTask('fonts', ['copy:fonts']);

@@ -24,7 +24,7 @@ This boilerplate is a mixture of:
 
 ## Checklist:
 
-- favicons
+- favicons (browserconfig.xml)
 - remove livereload script tag
 
 ## Useful links:
