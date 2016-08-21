@@ -1,0 +1,81 @@
+
+@import url(https://fonts.googleapis.com/css?family=Cinzel+Decorative);
+/*
+USE YOURS FOR WEBFONT PAGE!
+see definition below
+*/
+
+
+/* color */
+
+.sg-palette {
+	overflow: hidden;
+}
+
+.sg-swatch {
+	float: left;
+	border: 1px solid #dddddd;
+	margin: 0 0.2em 0.2em 0;
+	overflow: hidden;
+	padding: 0.3em;
+	text-align: center;
+	list-style: none;
+}
+	
+.sg-color,
+.sg-color span {
+	display: inline-block;
+	width: 9em;
+	height: 9em;
+	background: url(../img/transparent_bg.png);
+}
+.sg-label {
+	display: block;
+    line-height: 1;
+}
+
+/* webfont */
+
+#sg-codechart li {
+	cursor: pointer;
+}
+
+#sg-codechart small {
+	opacity: 0.5;
+}
+
+#sg-codechart li div {
+	overflow: hidden;
+	float: none;
+	cursor: default;
+}
+
+#sg-codechart .sg-char {
+	display: block;
+	position: relative;
+	width: 96px;
+	height: 114px;
+	float: left;
+	margin: 1px;
+	text-align: center;
+	border: 1px solid rgba(0,0,0,0.2);
+}
+
+#sg-codechart  .sg-char span {
+	/*
+	USE YOURS!
+	
+	
+	use a different type for fallback to see the difference between existing and non existing character definitions
+	
+	*/
+	font-family: 'Cinzel Decorative', monospace;
+	display: block;
+	width: 94px;
+	height: 94px;
+	line-height: 96px;
+	font-size: 60px;
+	font-weight: bold;
+	border-bottom: 1px solid rgba(0,0,0,0.2);
+	cursor: default;
+}
