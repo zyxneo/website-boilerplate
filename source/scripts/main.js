@@ -1,6 +1,8 @@
 
 
-ScrollPosStyler.init();
+
+var transparentNav = true;
+var navSwitchScrollPos = 300;
 
 $( document ).ready(function() {
     
@@ -22,4 +24,21 @@ $( document ).ready(function() {
         }
     }
 
+});
+
+$(window).on('scroll',function(){
+    console.log("scroll");
+
+    if($(document).scrollTop() > navSwitchScrollPos ) {
+        console.log("upper");
+        if(transparentNav) {
+            transparentNav = false;
+            $('.navbar').addClass('navbar-transparent');
+        }
+    } else {
+        if( !transparentNav ) {
+            transparentNav = true;
+            $('.navbar').removeClass('navbar-transparent');
+        }
+    } 
 });

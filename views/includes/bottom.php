@@ -15,9 +15,6 @@
     <script src="build/scripts/vendor/tether.min.js"></script>
     <script src="build/scripts/bootstrap.min.js"></script>
 
-    <!-- Simple JavaScript to add a custom CSS class to an HTML element depending on the window's scroll position -->
-    <script src="build/scripts/vendor/scrollPosStyler.min.js"></script>
-
     <script src="build/scripts/main.js"></script>
 
     <!-- Use your own API! -->

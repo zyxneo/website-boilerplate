@@ -1,8 +1,9 @@
-// scrollpos
-.sps--abv {
-}
 
-.sps--blw {
-  background-color: $gray;
-  transition: all 0.2s ease-in-out;
+.navbar-transparent {
+  opacity: .5;
+  transition: opacity 0.2s ease-in-out;
+
+  &:hover {
+    opacity: 1;
+  }
 }

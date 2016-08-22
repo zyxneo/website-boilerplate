@@ -43,5 +43,7 @@ This boilerplate is a mixture of:
 - http://imagesloaded.desandro.com/
 - http://kenwheeler.github.io/slick/
 - http://fotorama.io/
+- [Swiper](https://github.com/nolimits4web/Swiper)
+- [Slider Pro](https://github.com/bqworks/slider-pro/)
 
 - https://npmcdn.com/

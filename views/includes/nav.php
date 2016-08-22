@@ -1,4 +1,4 @@
-    <nav class="navbar navbar-full bg-faded sps">
+    <nav class="navbar navbar-full bg-faded">
         <div class="container">
           <button class="navbar-toggler hidden-md-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2" aria-controls="exCollapsingNavbar2" aria-expanded="false" aria-label="Toggle navigation">
             &#9776;
