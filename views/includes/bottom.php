@@ -20,6 +20,9 @@
 
     <script src="build/scripts/main.js"></script>
 
+    <!-- Use your own API! -->
+    <script async defer src="//maps.googleapis.com/maps/api/js?key=AIzaSyDFbpu0ydMH9PEeTDOspHw-Vy_ZhUEJBB8&callback=initMap"></script>
+
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID.
     <script>
         (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=

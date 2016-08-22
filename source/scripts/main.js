@@ -3,6 +3,9 @@
 ScrollPosStyler.init();
 
 $( document ).ready(function() {
+    
+    // init
+    $('.parallax').parallax();
 
     // js-cookie
     // https://github.com/js-cookie/js-cookie/tree/v2.1.2#readme

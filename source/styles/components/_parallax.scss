@@ -1,0 +1,35 @@
+
+.parallax {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+    
+    &__wrapper {
+        overflow: hidden;
+        position: relative;
+    }
+
+    &__scroll {
+        bottom: 0;
+        left: 50%;
+        min-height: 100%;
+        min-width: 100%;
+        position: absolute;
+        transform: translateX(-50%);
+
+        // for google map
+        &#map {
+            height: 500px;
+        }
+    }
+
+    &--map {
+        color: $gray-lightest;
+    }
+
+}
+
+

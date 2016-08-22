@@ -10,6 +10,31 @@
       </div>
     </div>
 
+    <div class="parallax__wrapper">
+        <div class="container">
+            <div class="content">
+                <h1>Parallax image Header</h1>
+                <h5>Parallax image description</h5>
+            </div>
+        </div>
+        <div class="parallax">
+            <img class="parallax__scroll" src="http://placehold.it/1800x350">
+        </div>
+    </div>
+
+    
+    <div class="parallax__wrapper parallax--map">
+        <div class="container">
+            <div class="content">
+                <h1>Parallax Map Header</h1>
+                <h5>Parallax Map description</h5>
+            </div>
+        </div>
+        <div class="parallax">
+            <div id="map" class="parallax__scroll"></div>
+        </div>
+    </div>
+
     <div class="container">
 
       <!-- Example row of columns -->
