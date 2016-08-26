@@ -27,10 +27,8 @@ $( document ).ready(function() {
 });
 
 $(window).on('scroll',function(){
-    console.log("scroll");
 
     if($(document).scrollTop() > navSwitchScrollPos ) {
-        console.log("upper");
         if(transparentNav) {
             transparentNav = false;
             $('.navbar').addClass('navbar-transparent');

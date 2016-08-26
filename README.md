@@ -25,6 +25,7 @@ This boilerplate is a mixture of:
 ## Checklist:
 
 - favicons (browserconfig.xml)
+- use your own google map API key
 - remove livereload script tag
 
 ## Useful links:
