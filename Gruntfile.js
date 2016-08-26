@@ -3,8 +3,8 @@
 
 // Change this path to your destination:
 
-var wwwRoot = 'views/';
-var buildPath = 'views/build';
+var wwwRoot = '';
+var buildPath = 'build';
 
 // http://gruntjs.com/getting-started
 // http://www.integralist.co.uk/posts/grunt-boilerplate.html

@@ -258,3 +258,4 @@ views/browserconfig.xml
 views/crossdomain.xml
 views/humans.txt
 views/robots.txt
+build/

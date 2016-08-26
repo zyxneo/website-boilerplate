@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="template">
+	<name>Bs4</name>
+	<creationDate>2016-08-17</creationDate>
+	<author>Szilágyi Balázs</author>
+	<authorEmail>zyxneo@gmail.com.com</authorEmail>
+	<authorUrl>http://www.manonet.org</authorUrl>
+	<copyright></copyright>
+	<license>GNU/GPL</license>
+	<version>0.0.0</version>
+	<description>Bootstrap v4 Alpha template</description>
+	<files>
+		<filename>index.php</filename>
+		<filename>templateDetails.xml</filename>
+	</files>
+	<positions>
+		<position>breadcrumbs</position>
+		<position>main-menu</position>
+		<position>content-top</position>
+		<position>content-bottom</position>
+		<position>sidebar-left</position>
+		<position>sidebar-right</position>
+		<position>header-search</position>
+		<position>user1</position>
+		<position>user2</position>
+		<position>user3</position>
+		<position>user4</position>
+		<position>footer</position>
+		<position>banner</position>
+		<position>debug</position>
+		<position>position-0</position>
+		<position>position-1</position>
+		<position>position-2</position>
+		<position>position-3</position>
+		<position>position-4</position>
+		<position>position-5</position>
+		<position>position-6</position>
+		<position>position-7</position>
+		<position>position-8</position>
+		<position>position-9</position>
+		<position>position-10</position>
+		<position>position-11</position>
+		<position>position-12</position>
+		<position>position-13</position>
+		<position>position-14</position>
+	</positions>
+</extension>
