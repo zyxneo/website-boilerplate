@@ -1,0 +1,27 @@
+.footer {
+    overflow: hidden;
+    background-color: #000;
+
+    &__articles {
+        padding: 20px 0;
+        background-color: $gray-dark;
+
+        .container {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .moduletable {
+            flex: 1 0 0;
+        }
+
+        h3 {
+            color: $gray-lighter;
+        }
+    }
+
+    &__bottom {
+        padding: 20px 0;
+        overflow: hidden;
+    }
+}

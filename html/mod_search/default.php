@@ -26,7 +26,7 @@ else
 }
 ?>
 <div class="search col-lg-3 pull-xs-right">
-	<form action="<?php echo JRoute::_('index.php');?>" method="post" class="form-inline">
+	<form action="<?php echo JRoute::_('index.php');?>" method="post">
 	
 		<div class="input-group">
 			<?php

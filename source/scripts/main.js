@@ -1,5 +1,6 @@
 
 
+(function ($) {
 
 var transparentNav = true;
 var navSwitchScrollPos = 300;
@@ -40,3 +41,6 @@ $(window).on('scroll',function(){
         }
     } 
 });
+
+
+}( jQuery ));

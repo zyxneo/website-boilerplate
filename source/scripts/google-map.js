@@ -1,3 +1,5 @@
+(function ($) {
+    
 if ($('map')) {
         
 	// http://googlemaps.github.io/js-samples/styledmaps/wizard/index.html
@@ -231,3 +233,4 @@ if ($('map')) {
       }
     
     }
+}( jQuery ));

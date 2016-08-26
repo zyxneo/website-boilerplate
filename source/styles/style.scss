@@ -2,12 +2,14 @@
 @import "custom";
 @import "bootstrap/bootstrap";
 
+@import "components/carousel";
 @import "components/cookie-message";
 @import "components/main-nav";
 @import "components/parallax";
 
 @import "helpers/functions";
 
+@import "layout/footer";
 @import "layout/main";
 
 @import "themes/styleguide";
