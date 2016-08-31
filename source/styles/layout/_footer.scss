@@ -1,10 +1,12 @@
 .footer {
     overflow: hidden;
-    background-color: #000;
+    background-color: #121212;
+    color: #a7a7a7;
 
     &__articles {
         padding: 20px 0;
-        background-color: $gray-dark;
+        background-color: #1A1A1A;
+        color: #959595;
 
         .container {
             display: flex;
@@ -23,5 +25,7 @@
     &__bottom {
         padding: 20px 0;
         overflow: hidden;
+        border-top: 3px solid #242325;
+        font-size: 13px;
     }
 }

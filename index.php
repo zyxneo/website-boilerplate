@@ -76,6 +76,8 @@ else {
 	<!-- use your own! -->
 	<meta name="verify-v1" content="v3zZf2RAHIDrk96a14oAvPplkfNjE0PiN7B8v1afAI8=" />
 
+	<link href="https://fonts.googleapis.com/css?family=Amatic+SC|Bad+Script|Baloo|Kaushan+Script|Open+Sans:300,300i,400,400i,700,700i,800,800i|Roboto:100,300,400,500,700,900|Sacramento|Tangerine&subset=latin-ext" rel="stylesheet"> 
+
 </head>
 
 <body>
@@ -118,9 +120,6 @@ else {
 					<button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#navbar-main-menu" aria-controls="navbar-main-menu" aria-expanded="false" aria-label="Toggle navigation">
 						&#9776;
 					</button>
-					<a class="navbar-brand" href="<?php echo $this->baseurl; ?>">
-						<?php echo $sitename; ?>
-					</a>
 				</div>
 		
 				<!-- Collect the nav links, forms, and other content for toggling -->
@@ -178,7 +177,7 @@ else {
 					
 					<main id="content" role="main" class="<?php echo $col_class;?>">
 						<!-- Begin Content -->
-						<jdoc:include type="modules" name="top" style="xhtml" />
+						<jdoc:include type="modules" name="content-top" style="xhtml" />
 						<jdoc:include type="message" />
 						
 						<?php if ($this->countModules('breadcrumbs')) : ?>
@@ -190,7 +189,7 @@ else {
 						<?php endif; ?>
 		
 						<jdoc:include type="component" />
-						<jdoc:include type="modules" name="bottom" style="none" />
+						<jdoc:include type="modules" name="content-bottom" style="xhtml" />
 						<!-- End Content -->
 					</main>
 					
@@ -210,27 +209,40 @@ else {
 
 	<?php if ($this->countModules('user1')) : ?>
 		<!-- user1 Start -->
-		<jdoc:include type="modules" name="user1" />
+		<jdoc:include type="modules" name="user1" style="xhtml" />
 		<!-- user1 End -->
 	<?php endif; ?>
 
 	<?php if ($this->countModules('user2')) : ?>
 		<!-- user2 Start -->
-		<jdoc:include type="modules" name="user2" />
+		<jdoc:include type="modules" name="user2" style="xhtml" />
 		<!-- user2 End -->
 	<?php endif; ?>
 
 	<?php if ($this->countModules('user3')) : ?>
 		<!-- user3 Start -->
-		<jdoc:include type="modules" name="user3" />
+		<div class="user3" >
+			<div class="container" >
+				<jdoc:include type="modules" name="user3" style="xhtml" />  
+			</div>
+		</div>
 		<!-- user3 End -->
 	<?php endif; ?>
 
 	<?php if ($this->countModules('user4')) : ?>
 		<!-- user4 Start -->
-		<jdoc:include type="modules" name="user4" />
+		<jdoc:include type="modules" name="user4" style="xhtml" />
 		<!-- user4 End -->
 	<?php endif; ?>
+
+	<div class="qiuck-select">
+		<div class="container">
+			<a class="qiuck-select__item qiuck-select__item1" href=""></a>
+			<a class="qiuck-select__item qiuck-select__item2" href=""></a>
+			<a class="qiuck-select__item qiuck-select__item3" href=""></a>
+			<a class="qiuck-select__item qiuck-select__item4" href=""></a>
+		</div>
+	</div>
 
 	<!-- Footer starts -->
 	<footer class="footer" role="contentinfo">
@@ -268,6 +280,8 @@ else {
     <script src="<?php echo JUri::root(true); ?>/templates/bs4/build/scripts/bootstrap.min.js"></script>
     <script src="<?php echo JUri::root(true); ?>/templates/bs4/build/scripts/main.js"></script>
 
+    <!-- Use your own API! -->
+    <script async defer src="//maps.googleapis.com/maps/api/js?key=AIzaSyDFbpu0ydMH9PEeTDOspHw-Vy_ZhUEJBB8&callback=initMap"></script>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 	<script>

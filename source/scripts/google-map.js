@@ -1,15 +1,15 @@
-(function ($) {
-    
-if ($('map')) {
+   
+if (document.getElementById('map')) {
         
 	// http://googlemaps.github.io/js-samples/styledmaps/wizard/index.html
 	// https://developers.google.com/maps/documentation/javascript/get-api-key#registering-authorized-urls
     
-	var mapLat = 48.2155779;
-	var mapLng = 16.3938163;
+	var mapLat = 47.8757987;
+	var mapLng = 17.2691203;
 	var mapZoom = 14;
 	var infowindowContent = '<p>Html content</p>';
-	
+	var disableDefaultUI = true;
+
 	var mapMarker = {
           path: 'M90.1-125.4C71.8-77.9,0,0,0,0s-66-74.8-85.1-120.3 c-25-59.4,16.6-132.8,85.1-132.8S111.9-182.1,90.1-125.4z M-62.1-159.1c0,35.3,28.2,63.9,63.2,64c35.4,0.1,63.9-28,64-63.1 c0.1-35.7-28-64.1-63.4-64.2C-33.4-222.6-62-194.1-62.1-159.1z',
           fillColor: 'red',
@@ -20,13 +20,14 @@ if ($('map')) {
         };
 
 
-      function initMap() {
+    function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: mapLat, lng: mapLng},
-          zoom: mapZoom,
+            center: {lat: mapLat, lng: mapLng},
+            zoom: mapZoom,
+            disableDefaultUI: disableDefaultUI,
 
-		  styles: [
-              {
+            styles: [
+                {
                 "featureType": "all",
                 "elementType": "labels.text.fill",
                 "stylers": [
@@ -220,17 +221,18 @@ if ($('map')) {
         });
 
         var infowindow = new google.maps.InfoWindow();
-		
-		var marker = new google.maps.Marker({
-              map: map,
-			  icon: mapMarker,
-              position: {lat: mapLat, lng: mapLng}
+        
+        var marker = new google.maps.Marker({
+                map: map,
+                icon: mapMarker,
+                position: {lat: mapLat, lng: mapLng}
         });
-		google.maps.event.addListener(marker, 'click', function() {
-		  infowindow.setContent(infowindowContent);
-		  infowindow.open(map, this);
-		});
-      }
-    
+        /*
+        google.maps.event.addListener(marker, 'click', function() {
+            infowindow.setContent(infowindowContent);
+            infowindow.open(map, this);
+        });
+        */
     }
-}( jQuery ));
+    
+}
