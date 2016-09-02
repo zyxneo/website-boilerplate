@@ -47,4 +47,4 @@ This boilerplate is a mixture of:
 - [Swiper](https://github.com/nolimits4web/Swiper)
 - [Slider Pro](https://github.com/bqworks/slider-pro/)
 
-- https://npmcdn.com/
+- https://unpkg.com/
