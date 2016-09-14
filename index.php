@@ -50,12 +50,10 @@ else {
 
 
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="" prefix="og: http://ogp.me/ns#"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="" prefix="og: http://ogp.me/ns#"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang="" prefix="og: http://ogp.me/ns#"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="" prefix="og: http://ogp.me/ns#"> <!--<![endif]-->
-
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#"> <!--<![endif]-->
 
 <head>
 	<meta charset="utf-8">
@@ -63,20 +61,20 @@ else {
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 	<jdoc:include type="head" />
-	
+
     <link rel="shortcut icon" href="<?php echo JUri::root(true); ?>/templates/bs4/build/images/favicon/favicon.ico">
     <link rel="apple-touch-icon" href="<?php echo JUri::root(true); ?>/templates/bs4/build/images/img/favicon/apple-touch-icon.png">
-	
+
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-	
+
 	<!-- use your own! -->
 	<meta name="verify-v1" content="v3zZf2RAHIDrk96a14oAvPplkfNjE0PiN7B8v1afAI8=" />
 
-	<link href="https://fonts.googleapis.com/css?family=Amatic+SC|Bad+Script|Baloo|Kaushan+Script|Open+Sans:300,300i,400,400i,700,700i,800,800i|Roboto:100,300,400,500,700,900|Sacramento|Tangerine&subset=latin-ext" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Amatic+SC|Bad+Script|Baloo|Kaushan+Script|Open+Sans:300,300i,400,400i,700,700i,800,800i|Roboto:100,300,400,500,700,900|Sacramento|Tangerine&subset=latin-ext" rel="stylesheet">
 
 </head>
 
@@ -84,7 +82,7 @@ else {
 <!--[if lt IE 8]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    
+
 	<!-- Header Start -->
     <header class="header pos-f-t">
 
@@ -97,23 +95,8 @@ else {
         <!--<META HTTP-EQUIV="Refresh" CONTENT="0;URL=ShowErrorPage.html">-->
       </noscript>
 
-      <div class="alert alert-info" id="cookie-message" role="alert">
-        <div class="container">
-          <div class="row">
-            <div class="hidden-md-up col-xs-8">
-              <p><strong>Cookies on the website:</strong></p>
-            </div>
-            <div class="hidden-sm-down col-md-10">
-              <p>The website uses cookies. By contiuing to browse the site you are agreeing to our use of cookies. For more details see our data privacy statement.</p>
-            </div>
-            <div class="col-md-2 col-xs-4">
-              <a class="btn btn-info cookie-close pull-xs-right" href="" data-dismiss="alert" aria-label="Close">Continue</a>
-            </div>
-          </div>
-        </div>
-      </div>
 
-		<nav class="navbar navbar-full navbar-dark bg-inverse">
+		<nav class="navbar navbar-full navbar-dark bg-inverse main-nav">
 			<div class="container<?php echo ($fluidContainer ? '-fluid' : ''); ?>">
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">
@@ -121,7 +104,7 @@ else {
 						&#9776;
 					</button>
 				</div>
-		
+
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-toggleable-sm" id="navbar-main-menu">
 					<?php if ($this->countModules('main-menu')) : ?>
@@ -131,11 +114,11 @@ else {
 						</div>
 						<!-- Joomla NavBar End-->
 					<?php endif; ?>
-					
+
 					<?php if ($this->countModules('header-search')) : ?>
 						<jdoc:include type="modules" name="header-search" style="none" />
 					<?php endif; ?>
-					
+
 				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->
 		</nav>
@@ -144,7 +127,7 @@ else {
 
 	<!-- Body -->
 	<div class="body">
-		
+
 		<?php if ($this->countModules('carusel')) : ?>
 			<!-- carusel Start -->
 			<jdoc:include type="modules" name="carusel" />
@@ -152,7 +135,7 @@ else {
 		<?php endif; ?>
 
 		<?php if ($this->countModules('banner')) : ?>
-			<!-- banner Start -->	
+			<!-- banner Start -->
 			<div class="banner">
 				<div class="container<?php echo ($fluidContainer ? '-fluid' : ''); ?>">
 					<jdoc:include type="modules" name="banner" />
@@ -160,7 +143,7 @@ else {
 			</div>
 			<!-- banner End -->
 		<?php endif; ?>
-		
+
 		<!--Start Main Content -->
 		<div class="main-content">
 			<div class="container<?php echo ($fluidContainer ? '-fluid' : ''); ?>">
@@ -174,12 +157,12 @@ else {
 						</div>
 						<!-- End Sidebar left-->
 					<?php endif; ?>
-					
+
 					<main id="content" role="main" class="<?php echo $col_class;?>">
 						<!-- Begin Content -->
 						<jdoc:include type="modules" name="content-top" style="xhtml" />
 						<jdoc:include type="message" />
-						
+
 						<?php if ($this->countModules('breadcrumbs')) : ?>
 							<!-- breadcrumbs Start -->
 							<div id="breadcrumbs" class="breadcrumbs">
@@ -187,12 +170,12 @@ else {
 							</div>
 							<!-- breadcrumbs Start -->
 						<?php endif; ?>
-		
+
 						<jdoc:include type="component" />
 						<jdoc:include type="modules" name="content-bottom" style="xhtml" />
 						<!-- End Content -->
 					</main>
-					
+
 					<?php if ($this->countModules('sidebar-right')) : ?>
 						<div id="aside" class="col-sm-3">
 							<!-- Begin Right Sidebar -->
@@ -204,7 +187,7 @@ else {
 			</div>
 		</div>
 		<!--End Main Content -->
-		
+
 	</div>
 
 	<?php if ($this->countModules('user1')) : ?>
@@ -223,7 +206,7 @@ else {
 		<!-- user3 Start -->
 		<div class="user3" >
 			<div class="container" >
-				<jdoc:include type="modules" name="user3" style="xhtml" />  
+				<jdoc:include type="modules" name="user3" style="xhtml" />
 			</div>
 		</div>
 		<!-- user3 End -->
@@ -253,7 +236,7 @@ else {
 				<jdoc:include type="modules" name="footer3" style="xhtml" />
 				<jdoc:include type="modules" name="footer4" style="xhtml" />
 			</div>
-		</div>	
+		</div>
 
 		<div class="footer__bottom">
 			<div class="container<?php echo ($fluidContainer ? '-fluid' : ''); ?>">
@@ -270,18 +253,32 @@ else {
 	</footer>
 	<!-- Footer End -->
 
+
+  <div class="alert alert-info" id="cookie-message" role="alert">
+    <div class="container">
+      <div class="row">
+        <div class="hidden-md-up col-xs-8">
+          <p><strong>Cookies on the website:</strong></p>
+        </div>
+        <div class="hidden-sm-down col-md-10">
+          <p>The website uses cookies. By contiuing to browse the site you are agreeing to our use of cookies. For more details see our data privacy statement.</p>
+        </div>
+        <div class="col-md-2 col-xs-4">
+          <a class="btn btn-info cookie-close pull-xs-right" href="" data-dismiss="alert" aria-label="Close">Continue</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
 	<jdoc:include type="modules" name="debug" style="none" />
-	
-	
-	
+
+
+
     <!-- Bootstrap core JavaScript
-    ================================================== -->    
+    ================================================== -->
     <script src="<?php echo JUri::root(true); ?>/templates/bs4/build/scripts/vendor/tether.min.js"></script>
     <script src="<?php echo JUri::root(true); ?>/templates/bs4/build/scripts/bootstrap.min.js"></script>
     <script src="<?php echo JUri::root(true); ?>/templates/bs4/build/scripts/main.js"></script>
-
-    <!-- Use your own API! -->
-    <script async defer src="//maps.googleapis.com/maps/api/js?key=AIzaSyDFbpu0ydMH9PEeTDOspHw-Vy_ZhUEJBB8&callback=initMap"></script>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 	<script>

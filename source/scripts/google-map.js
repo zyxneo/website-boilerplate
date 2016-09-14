@@ -1,6 +1,5 @@
    
-if (document.getElementById('map')) {
-        
+      
 	// http://googlemaps.github.io/js-samples/styledmaps/wizard/index.html
 	// https://developers.google.com/maps/documentation/javascript/get-api-key#registering-authorized-urls
     
@@ -235,4 +234,3 @@ if (document.getElementById('map')) {
         */
     }
     
-}

@@ -3,7 +3,7 @@
 (function ($) {
 
 var transparentNav = true;
-var navSwitchScrollPos = 300;
+var navSwitchScrollPos = 60;
 
 $( document ).ready(function() {
     
@@ -23,6 +23,11 @@ $( document ).ready(function() {
                 Cookies.set('accept-cookies', 'true', { expires: new Date(9999, 1, 1) });
             })
         }
+    }
+
+    // init google map. You need to have the google script tag in the site
+    if ($('#map')) {
+        initMap();
     }
 
 });
