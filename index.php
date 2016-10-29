@@ -74,7 +74,7 @@ else {
 	<!-- use your own! -->
 	<meta name="verify-v1" content="v3zZf2RAHIDrk96a14oAvPplkfNjE0PiN7B8v1afAI8=" />
 
-	<link href="https://fonts.googleapis.com/css?family=Amatic+SC|Bad+Script|Baloo|Kaushan+Script|Open+Sans:300,300i,400,400i,700,700i,800,800i|Roboto:100,300,400,500,700,900|Sacramento|Tangerine&subset=latin-ext" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i|Open+Sans:400,400i,700,700i&amp;subset=latin-ext" rel="stylesheet">
 
 </head>
 
@@ -84,7 +84,7 @@ else {
     <![endif]-->
 
 	<!-- Header Start -->
-    <header class="header pos-f-t">
+    <header class="header">
 
       <noscript>
         <div class="alert alert-danger" role="alert">
@@ -218,15 +218,6 @@ else {
 		<!-- user4 End -->
 	<?php endif; ?>
 
-	<div class="qiuck-select">
-		<div class="container">
-			<a class="qiuck-select__item qiuck-select__item1" href=""></a>
-			<a class="qiuck-select__item qiuck-select__item2" href=""></a>
-			<a class="qiuck-select__item qiuck-select__item3" href=""></a>
-			<a class="qiuck-select__item qiuck-select__item4" href=""></a>
-		</div>
-	</div>
-
 	<!-- Footer starts -->
 	<footer class="footer" role="contentinfo">
 		<div class="footer__articles">
@@ -253,23 +244,6 @@ else {
 	</footer>
 	<!-- Footer End -->
 
-
-  <div class="alert alert-info" id="cookie-message" role="alert">
-    <div class="container">
-      <div class="row">
-        <div class="hidden-md-up col-xs-8">
-          <p><strong>Cookies on the website:</strong></p>
-        </div>
-        <div class="hidden-sm-down col-md-10">
-          <p>The website uses cookies. By contiuing to browse the site you are agreeing to our use of cookies. For more details see our data privacy statement.</p>
-        </div>
-        <div class="col-md-2 col-xs-4">
-          <a class="btn btn-info cookie-close pull-xs-right" href="" data-dismiss="alert" aria-label="Close">Continue</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
 	<jdoc:include type="modules" name="debug" style="none" />
 
 
@@ -281,16 +255,6 @@ else {
     <script src="<?php echo JUri::root(true); ?>/templates/bs4/build/scripts/main.js"></script>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-	<script>
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-		ga('create', 'UA-4516268-1', 'auto');
-		ga('send', 'pageview');
-
-	</script>
 
     <!-- Livereload - REMOVE IF YOU ARE DONE
     ================================================== -->

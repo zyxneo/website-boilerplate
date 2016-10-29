@@ -8,17 +8,17 @@
 //
 // Grayscale and brand colors for use across Bootstrap.
 
-$gray-base:              #000 !default;
-$gray-darker:            #202020 !default; // #222
-$gray-dark:              #7A7E82 !default;   // #333
-$gray:                   #999 !default; // #555
-$gray-light:             #bbb !default;   // #999
-$gray-lighter:           #EBEBEB !default; // #eee
+$gray-base:              #261e1b !default;
+$gray-darker:            #312222 !default; // #222
+$gray-dark:              #44332e !default;   // #333
+$gray:                   #837373 !default; // #555
+$gray-light:             #a6a397 !default;   // #999
+$gray-lighter:           #f1eddb !default; // #eee
 
-$brand-primary:         #f14507 !default;
-$brand-success:         #5cb85c !default;
-$brand-info:            #5bc0de !default;
-$brand-warning:         #f0ad4e !default;
+$brand-primary:         #bf4d28 !default;
+$brand-success:         #17b84c !default;
+$brand-info:            #51c1c5 !default;
+$brand-warning:         #e19c23 !default;
 $brand-danger:          #d9534f !default;
 $brand-inverse:             $gray-base !default;
 
@@ -69,7 +69,7 @@ $border-width: 1px !default;
 //
 // Settings for the `<body>` element.
 
-$body-bg:    #fff !default;
+$body-bg:    $gray-lighter !default;
 $body-color: $gray-dark !default;
 
 
@@ -77,9 +77,9 @@ $body-color: $gray-dark !default;
 //
 // Style anchor elements.
 
-$link-color:            $gray-lighter !default;
+$link-color:            $brand-primary !default;
 $link-decoration:       none !default;
-$link-hover-color:      darken($link-color, 15%) !default;
+$link-hover-color:      $brand-primary !default;
 $link-hover-decoration: underline !default;
 
 // Options
@@ -107,7 +107,7 @@ font-family: 'Amatic SC', cursive;
 
 
 $font-family-sans-serif: 'Open Sans', 'Roboto', "Helvetica Neue", Arial, sans-serif !default;
-$font-family-serif:      Georgia, "Times New Roman", Times, serif !default;
+$font-family-serif:      'Lora', Georgia, "Times New Roman", Times, serif !default;
 $font-family-monospace:  Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
 $font-family-base:       $font-family-sans-serif !default;
 
@@ -139,7 +139,7 @@ $display3-weight: 300 !default;
 $display4-weight: 300 !default;
 
 $headings-margin-bottom: ($spacer / 2) !default;
-$headings-font-family:   'Amatic SC', Arial, sans-serif !default;
+$headings-font-family:   $font-family-serif !default;
 $headings-font-weight:   100 !default;
 $headings-line-height:   1.1 !default;
 $headings-color:         inherit !default;
@@ -178,9 +178,9 @@ $list-inline-padding: 5px !default;
 $line-height-lg:         (4 / 3) !default;
 $line-height-sm:         1.5 !default;
 
-$border-radius:          0; //.25rem !default;
-$border-radius-lg:       0; //.3rem !default;
-$border-radius-sm:       0; //.2rem !default;
+$border-radius:          .25rem; //.25rem !default;
+$border-radius-lg:       .3rem; //.3rem !default;
+$border-radius-sm:       .2rem; //.2rem !default;
 
 $component-active-color: #fff !default;
 $component-active-bg:    $brand-primary !default;
@@ -252,9 +252,9 @@ $btn-block-spacing-y:            .5rem !default;
 $btn-toolbar-margin:             .5rem !default;
 
 // Allows for customizing button radius independently from global border radius
-$btn-border-radius:              0 !default;
-$btn-border-radius-lg:           0 !default;
-$btn-border-radius-sm:           0 !default;
+$btn-border-radius:              $border-radius !default;
+$btn-border-radius-lg:           $border-radius-lg !default;
+$btn-border-radius-sm:           $border-radius-sm !default;
 
 
 // Forms
@@ -271,9 +271,9 @@ $input-border-color:             rgba(0,0,0,.15) !default;
 $input-btn-border-width:         $border-width !default; // For form controls and buttons
 $input-box-shadow:               inset 0 1px 1px rgba(0,0,0,.075) !default;
 
-$input-border-radius:            0 !default;
-$input-border-radius-lg:         0 !default;
-$input-border-radius-sm:         0 !default;
+$input-border-radius:            $border-radius !default;
+$input-border-radius-lg:         $border-radius-lg !default;
+$input-border-radius-sm:         $border-radius-sm !default;
 
 $input-bg-focus:                 #2d2b2b;
 $input-border-focus:             $link-color !default;

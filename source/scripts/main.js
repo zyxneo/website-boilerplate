@@ -2,11 +2,8 @@
 
 (function ($) {
 
-var transparentNav = true;
-var navSwitchScrollPos = 60;
-
 $( document ).ready(function() {
-    
+
     // init
     $('.parallax').parallax();
 
@@ -30,21 +27,6 @@ $( document ).ready(function() {
         initMap();
     }
 
-});
-
-$(window).on('scroll',function(){
-
-    if($(document).scrollTop() > navSwitchScrollPos ) {
-        if(transparentNav) {
-            transparentNav = false;
-            $('.navbar').addClass('navbar-transparent');
-        }
-    } else {
-        if( !transparentNav ) {
-            transparentNav = true;
-            $('.navbar').removeClass('navbar-transparent');
-        }
-    } 
 });
 
 

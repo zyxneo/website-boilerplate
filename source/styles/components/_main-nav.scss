@@ -1,15 +1,7 @@
 
 .main-nav {
-  text-transform: uppercase;
-}
-
-.navbar-transparent {
-  opacity: .5;
-  transition: opacity 0.2s ease-in-out;
-
-  &:hover {
-    opacity: 1;
-  }
+  font-family: $font-family-serif;
+  font-variant: small-caps;
 }
 
 include media-breakpoint-up(sm) {
