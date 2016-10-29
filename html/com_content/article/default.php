@@ -10,6 +10,7 @@
 defined('_JEXEC') or die;
 
 $app = JFactory::getApplication();
+$doc =& JFactory::getDocument();
 $templateparams = $app->getTemplate(true)->params;
 $images = json_decode($this->item->images);
 $urls = json_decode($this->item->urls);
@@ -26,6 +27,7 @@ $profilImage = htmlspecialchars(JURI::root().'images/profil.jpg');
 $logoImage = htmlspecialchars(JURI::root().'images/logo.jpg');
 $sitename = $app->get('sitename');
 $email = $app->getCfg('mailfrom');
+$language  = $doc->language;
 
 if (isset($images->image_intro) and !empty($images->image_intro)) {
   $timage= htmlspecialchars(JURI::root().$images->image_intro);
@@ -34,23 +36,30 @@ if (isset($images->image_intro) and !empty($images->image_intro)) {
 } else {
   $timage= $logoImage;
 }
-$doc =& JFactory::getDocument();
+$imageData = getimagesize($timage);
+$imageWidth = $imageData[0];
+$imageHeight = $imageData[1];
+
 $doc->addCustomTag( '
     <meta name="twitter:title" content="'.$this->escape($this->item->title).'">
     <meta name="twitter:card" content="'.$profilImage.'">
     <meta name="twitter:site" content="@Bernathju">
     <meta name="twitter:creator" content="@Bernathju">
     <meta name="twitter:url" content="'.str_replace('" ','&quot;',JURI::current()).'">
-    <meta name="twitter:description" content="'.substr(strip_tags($this->item->introtext),0,45).'">
+    <meta name="twitter:description" content="'.strip_tags($this->item->introtext).'">
     <meta name="twitter:image" content="'.$timage.'">
     <meta property="og:title" content="'.$this->escape($this->item->title).'"/>
     <meta property="og:type" content="article"/>
     <meta property="og:email" content="'.$email.'"/>
     <meta property="og:url" content="'.str_replace('" ','&quot;',juri::current()).'">
     <meta property="og:image" content="'.$timage.'"/>
+    <meta property="og:image:width" content="'.$imageWidth.'"/>
+    <meta property="og:image:height" content="'.$imageHeight.'"/>
     <meta property="og:site_name" content="'.$sitename.'"/>
+    <meta property="og:locale" content="'.$language.'"/>
     <meta property="fb:admins" content="100013221137522"/>
-    <meta property="og:description" content="'.substr(strip_tags($this->item->introtext),0,45).'"/>
+    <meta property="fb:app_id" content="623579207820352"/>
+    <meta property="og:description" content="'.strip_tags($this->item->introtext).'"/>
     <meta property="article:published_time" content="'.$this->item->publish_up.'"/>
     <meta property="article:author" content="'.$this->item->author.'"/>
     <meta property="article:section" content="'.$this->escape($this->item->category_title).'"/>
@@ -98,38 +107,12 @@ if ($params->get('show_title')) : ?>
 </hgroup>
 <?php endif; ?>
 
-<?php if ($params->get('access-edit') ||  $params->get('show_print_icon') || $params->get('show_email_icon')) : ?>
-		<ul class="actions">
-		<?php if (!$this->print) : ?>
-				<?php if ($params->get('show_print_icon')) : ?>
-				<li class="print-icon">
-						<?php echo JHtml::_('icon.print_popup', $this->item, $params, array(), true); ?>
-				</li>
-				<?php endif; ?>
 
-				<?php if ($params->get('show_email_icon')) : ?>
-				<li class="email-icon">
-						<?php echo JHtml::_('icon.email', $this->item, $params, array(), true); ?>
-				</li>
-				<?php endif; ?>
-				<?php if ($this->user->authorise('core.edit', 'com_content.article.' . $this->item->id)) : ?>
-						<li class="edit-icon">
-							<?php echo JHtml::_('icon.edit', $this->item, $params, array(), true); ?>
-						</li>
-					<?php endif; ?>
-		<?php else : ?>
-				<li>
-						<?php echo JHtml::_('icon.print_screen', $this->item, $params, array(), true); ?>
-				</li>
-		<?php endif; ?>
-		</ul>
-<?php endif; ?>
 
 	<?php  if (!$params->get('show_intro')) :
 		echo $this->item->event->afterDisplayTitle;
 	endif; ?>
 
-	<?php echo $this->item->event->beforeDisplayContent; ?>
 
 <?php $useDefList = (($params->get('show_author')) or ($params->get('show_category')) or ($params->get('show_parent_category'))
 	or ($params->get('show_create_date')) or ($params->get('show_modify_date')) or ($params->get('show_publish_date'))
@@ -155,9 +138,9 @@ if ($params->get('show_title')) : ?>
 			<?php 	$title = $this->escape($this->item->category_title);
 					$url = '<a href="' . JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catslug)) . '">' . $title . '</a>';?>
 			<?php if ($params->get('link_category') and $this->item->catslug) : ?>
-				<?php echo JText::sprintf('COM_CONTENT_CATEGORY', $url); ?>
+				<?php echo '<span class="icon-news"></span>' . $url; ?>
 				<?php else : ?>
-				<?php echo JText::sprintf('COM_CONTENT_CATEGORY', $title); ?>
+				<?php echo '<span class="icon-news"></span>' . $title; ?>
 			<?php endif; ?>
 		</dd>
 <?php endif; ?>
@@ -173,7 +156,7 @@ if ($params->get('show_title')) : ?>
 <?php endif; ?>
 <?php if ($params->get('show_publish_date')) : ?>
 		<dd class="published">
-		<?php echo JText::sprintf('COM_CONTENT_PUBLISHED_DATE_ON', JHtml::_('date', $this->item->publish_up, JText::_('DATE_FORMAT_LC2'))); ?>
+		<?php echo '<span class="icon-calendar"></span>' . JHtml::_('date', $this->item->publish_up, JText::_('DATE_FORMAT_LC2')); ?>
 		</dd>
 <?php endif; ?>
 <?php if ($params->get('show_author') && !empty($this->item->author )) : ?>
@@ -181,15 +164,15 @@ if ($params->get('show_title')) : ?>
 		<?php $author = $this->item->author; ?>
 		<?php $author = ($this->item->created_by_alias ? $this->item->created_by_alias : $author);?>
 		<?php if (!empty($this->item->contact_link ) &&  $params->get('link_author') == true) : ?>
-			<?php echo JText::sprintf('COM_CONTENT_WRITTEN_BY', JHtml::_('link', $this->item->contact_link, $author)); ?>
+			<?php echo '<span class="icon-pen"></span>' . JHtml::_('link', $this->item->contact_link, $author); ?>
 		<?php else : ?>
-			<?php echo JText::sprintf('COM_CONTENT_WRITTEN_BY', $author); ?>
+			<?php echo '<span class="icon-pen"></span>' . $author; ?>
 		<?php endif; ?>
 	</dd>
 <?php endif; ?>
 <?php if ($params->get('show_hits')) : ?>
 		<dd class="hits">
-		<?php echo JText::sprintf('COM_CONTENT_ARTICLE_HITS', $this->item->hits); ?>
+		<?php echo '<span class="icon-eye"></span>' . $this->item->hits; ?>
 		</dd>
 <?php endif; ?>
 <?php if ($useDefList) : ?>
@@ -245,4 +228,52 @@ if (!empty($this->item->pagination) AND $this->item->pagination AND $this->item-
 	echo $this->item->pagination;?>
 <?php endif; ?>
 	<?php echo $this->item->event->afterDisplayContent; ?>
+
+
+	<?php echo $this->item->event->beforeDisplayContent; ?>
+
+<?php if ($params->get('access-edit') ||  $params->get('show_print_icon') || $params->get('show_email_icon')) : ?>
+		<ul class="actions list-inline">
+		<?php if (!$this->print) : ?>
+				<?php if ($params->get('show_print_icon')) : ?>
+				<li class="print-icon list-inline-item">
+						<?php echo JHtml::_('icon.print_popup', $this->item, $params, array(), true); ?>
+				</li>
+				<?php endif; ?>
+
+				<?php if ($params->get('show_email_icon')) : ?>
+				<li class="email-icon list-inline-item">
+						<?php echo JHtml::_('icon.email', $this->item, $params, array(), true); ?>
+				</li>
+				<?php endif; ?>
+				<?php if ($this->user->authorise('core.edit', 'com_content.article.' . $this->item->id)) : ?>
+						<li class="edit-icon list-inline-item">
+							<?php echo JHtml::_('icon.edit', $this->item, $params, array(), true); ?>
+						</li>
+					<?php endif; ?>
+		<?php else : ?>
+				<li class="list-inline-item">
+						<?php echo JHtml::_('icon.print_screen', $this->item, $params, array(), true); ?>
+				</li>
+		<?php endif; ?>
+		</ul>
+<?php endif; ?>
+
+<ul class="list-inline social">
+    <li class="list-inline-item twitter">
+      <a href="https://twitter.com/share" class="twitter-share-button" data-via="bernatju" data-related="bernatju" data-dnt="true">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </li>
+    <li class="list-inline-item facebook">
+      <div
+        class="fb-like"
+        data-share="true"
+        data-layout="button_count">
+      </div>
+    </li>
+    <li class="list-inline-item google">
+        <div class="g-plus" data-action="share" data-annotation="none"></div>
+    </li>
+</ul>
+
 </article>

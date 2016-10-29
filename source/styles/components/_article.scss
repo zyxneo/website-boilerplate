@@ -1,0 +1,173 @@
+
+.article-info {
+
+  margin: 10px 0;
+  list-style: none;
+
+  dd {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 80%;
+    opacity: .5;
+
+    span {
+      margin-right: 5px;
+    }
+  }
+}
+
+.article-info-term {
+  display: none;
+}
+
+ul.tags {
+  margin-top: 20px;
+  padding: 10px 0;
+  list-style: none;
+  border: $border-width solid $hr-border-color;
+  border-width: $border-width 0;
+
+  li {
+    display: inline-block;
+
+    a {
+      padding: 0 7px;
+      margin-right: 10px;
+      background: $hr-border-color;
+      border-radius: 5px;
+
+      @include hover-focus-active {
+        background: $brand-primary;
+        text-decoration: none;
+      }
+
+      &:before {
+        font-family: 'icomoon' !important;
+        content: '\e902';
+        margin-right: 3px;
+      }
+    }
+  }
+}
+
+.actions {
+  float: left;
+  margin-right: 20px;
+
+  .print-icon,
+  .email-icon {
+    a {
+      text-indent: -9999px;
+      overflow: hidden;
+      display: inline-block;
+      width: 25px;
+
+      &:after {
+        text-indent: 0;
+        float: left;
+        font-family: 'icomoon' !important;
+        content: '\e954';
+      }
+    }
+  }
+  .email-icon {
+    a {
+      &:after {
+        content: '\e99f';
+      }
+    }
+  }
+}
+
+
+// This gets Google to fall into place
+ul.social {
+    float: left;
+    font-size: 1px;
+
+  // This gets Facebook to fall into place
+  iframe {
+      vertical-align: bottom;
+  }
+
+  // Set an optional width for your button wrappers
+  .twitter {
+      width: 80px;
+  }
+  .google {
+      width: 80px;
+      position: relative;
+      top: -1px;
+  }
+  .facebook {
+      width: 125px;
+  }
+}
+
+// VOTE
+.br-wrapper {
+  display: inline-block;
+  padding: 0 10px;
+
+  .br-widget {
+    height: 28px;
+    white-space: nowrap;
+
+    a {
+      font-family: 'icomoon' !important;
+      speak: none;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      text-decoration: none;
+      margin-right: 2px;
+    }
+
+    a:after {
+      content: '\f005';
+      color: $body-color;
+    }
+
+    a.br-active:after {
+      color: $brand-primary;
+    }
+
+    a.br-selected:after {
+      color: $link-color;
+    }
+
+    .br-current-rating {
+      display: none;
+    }
+  }
+
+  .br-readonly {
+    a {
+      cursor: default;
+    }
+  }
+
+}
+
+@media print {
+  .br-theme-fontawesome-stars {
+
+    .br-widget {
+      a:after {
+        content: '\f006';
+        color: black;
+      }
+
+      a.br-active:after,
+      a.br-selected:after {
+        content: '\f005';
+        color: black;
+      }
+    }
+
+  }
+}
