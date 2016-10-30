@@ -22,6 +22,10 @@ $this->direction = $doc->direction;
 // $task     = $app->input->getCmd('task', '');
 // $itemid   = $app->input->getCmd('Itemid', '');
 $sitename = $app->get('sitename');
+$google_map_api = $app->getCfg('google_map_api');
+$google_verify = $app->getCfg('google_verify');
+$fb_app_id = $app->getCfg('facebook_app_id');
+$ENV = $app->getCfg('ENV');
 
 JHtml::_('jquery.framework');
 JHtml::_('bootstrap.framework'); //Force load Bootstrap
@@ -72,13 +76,27 @@ else {
     <![endif]-->
 
 	<!-- use your own! -->
-	<meta name="verify-v1" content="v3zZf2RAHIDrk96a14oAvPplkfNjE0PiN7B8v1afAI8=" />
+	<meta name="verify-v1" content="<?php echo $google_verify; ?>" />
 
 	<link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i|Open+Sans:400,400i,700,700i&amp;subset=latin-ext" rel="stylesheet">
 
 </head>
 
 <body>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/<?php echo str_replace('-', '_', $this->language); ?>/sdk.js#xfbml=1&version=v2.7&appId=<?php echo $fb_app_id;?>";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<script src="https://apis.google.com/js/platform.js" async defer>
+  {lang: 'hu'}
+</script>
+
 <!--[if lt IE 8]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -190,6 +208,16 @@ else {
 
 	</div>
 
+	<?php if ($this->countModules('parallax')) : ?>
+		<!-- Parallax Start -->
+    <div class="parallax">
+      <div class="container">
+		    <jdoc:include type="modules" name="parallax" style="xhtml" />
+      </div>
+    </div>
+		<!-- Parallax End -->
+	<?php endif; ?>
+
 	<?php if ($this->countModules('user1')) : ?>
 		<!-- user1 Start -->
 		<jdoc:include type="modules" name="user1" style="xhtml" />
@@ -255,10 +283,21 @@ else {
     <script src="<?php echo JUri::root(true); ?>/templates/bs4/build/scripts/main.js"></script>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-    <!-- Livereload - REMOVE IF YOU ARE DONE
-    ================================================== -->
+		ga('create', '<?php echo $google_map_api; ?>', 'auto');
+		ga('send', 'pageview');
+
+	</script>
+
+	<?php if ($ENV = 'test') : ?>
+    <!-- Livereload -->
     <script src="//localhost:35729/livereload.js"></script>
+	<?php endif; ?>
 </body>
 
 </html>

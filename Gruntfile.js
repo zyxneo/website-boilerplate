@@ -45,7 +45,7 @@ module.exports = function (grunt) {
             imagesDir: buildPath + '/images/',
             fontsDir: buildPath + '/fonts/',
         },
-    
+
         banner: '/*!\n' +
                 ' * Bootstrap v<%= pkg.version %> (<%= pkg.homepage %>)\n' +
                 ' * Copyright 2011-<%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
@@ -97,7 +97,7 @@ module.exports = function (grunt) {
               ]
             }
         },
-        
+
         postcss: {
             options: {
                 map: {
@@ -270,7 +270,7 @@ module.exports = function (grunt) {
           fonts: {
             expand: true,
             cwd: '<%= settings.fontsSourceDir %>',
-            src: '**',
+            src: '**/*.{eot,svg,ttf,woff,woff2}',
             dest: '<%= settings.fontsDir %>',
             flatten: true,
             filter: 'isFile',
@@ -319,7 +319,7 @@ module.exports = function (grunt) {
                 tasks: ['images']
             },
             fonts: {
-                files: ['<%= settings.fontsSourceDir %>**/*.*'],
+                files: ['<%= settings.fontsSourceDir %>**/*.{eot,svg,ttf,woff,woff2}'],
                 tasks: ['fonts']
             }
         },

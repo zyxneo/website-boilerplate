@@ -4,9 +4,6 @@
 
 $( document ).ready(function() {
 
-    // init
-    $('.parallax').parallax();
-
     // js-cookie
     // https://github.com/js-cookie/js-cookie/tree/v2.1.2#readme
 
@@ -22,11 +19,22 @@ $( document ).ready(function() {
         }
     }
 
-    // init google map. You need to have the google script tag in the site
-    if ($('#map')) {
-        initMap();
-    }
+    $('.content_vote select').barrating({
+      theme: 'fontawesome-stars',
+      onSelect: function(value, text, event) {
+        if (typeof(event) !== 'undefined') {
+          // rating was selected by a user
+          var form = $($(event.target).closest('form')[0]);
+          var action = form.attr('action');
+          console.log(form);
 
+          $.post(action, form.serialize());
+        } else {
+          // rating was selected programmatically
+          // by calling `set` method
+        }
+      }
+    });
 });
 
 

@@ -27,8 +27,10 @@ This boilerplate is a mixture of:
 - favicons (browserconfig.xml)
 - use your own google map API key
 - use your own site verification
-- use your own google analytics
-- remove livereload script tag
+- use your own google analytics in configuration
+- add 'images/profil.jpg'
+- add 'images/logo.jpg' for og protocol
+- add vote.php to 'plugins\content\vote'
 
 ## Useful links:
 

@@ -30,7 +30,7 @@ $enable-flex:               true !default;
 $enable-rounded:            true !default;
 $enable-shadows:            false !default;
 $enable-gradients:          false !default;
-$enable-transitions:        false !default;
+$enable-transitions:        true !default;
 $enable-hover-media-query:  false !default;
 $enable-grid-classes:       true !default;
 $enable-print-styles:       true !default;
@@ -158,7 +158,7 @@ $blockquote-font-size:    ($font-size-base * 1.25) !default;
 $blockquote-border-color: $gray-lighter !default;
 $blockquote-border-width: .25rem !default;
 
-$hr-border-color: rgba(0,0,0,.1) !default;
+$hr-border-color: rgba(0,0,0,.2) !default;
 $hr-border-width: $border-width !default;
 
 $mark-padding: .2em !default;
