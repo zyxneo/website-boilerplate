@@ -1,6 +1,33 @@
 
 @import "../helpers/functions";
 
+.body:after,
+.footer__articles:after {
+  content: "";
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  right: 0;
+  bottom: 0;
+  background: image-url("mosonmagyarovar-cimer.svg") fixed no-repeat 100% 50%;
+  background-size: contain;
+  filter: sepia(.7);
+  z-index: -1;
+  opacity: .1;
+}
+
+.footer__articles {
+  position: relative;
+  overflow: hidden;
+}
+
+.footer__articles {
+  &:after {
+    position: absolute;
+    filter: invert(.9);
+    z-index: 0;
+  }
+}
 
 // for google map
 
