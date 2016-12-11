@@ -117,16 +117,13 @@ else {
 
 		<nav class="navbar navbar-full navbar-dark bg-inverse main-nav">
 			<div class="container<?php echo ($fluidContainer ? '-fluid' : ''); ?>">
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header">
-					<button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#navbar-main-menu" aria-controls="navbar-main-menu" aria-expanded="false" aria-label="Toggle navigation">
-						&#9776;
-					</button>
-				</div>
+        <button class="navbar-toggler hidden-lg-up bg-inverse" type="button" data-toggle="collapse" data-target="#navbar-main-menu" aria-controls="navbar-main-menu" aria-expanded="false" aria-label="Toggle navigation">
+          &#9776;
+        </button>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-toggleable-sm" id="navbar-main-menu">
-					<?php if ($this->countModules('main-menu')) : ?>
+				<div class="collapse navbar-toggleable-md" id="navbar-main-menu">
+          <?php if ($this->countModules('main-menu')) : ?>
 						<!-- Joomla NavBar Start -->
 						<div class="main-menu">
 							<jdoc:include type="modules" name="main-menu" style="none" />
