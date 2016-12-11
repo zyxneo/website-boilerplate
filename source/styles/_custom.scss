@@ -8,14 +8,14 @@
 //
 // Grayscale and brand colors for use across Bootstrap.
 
-$gray-base:              #261e1b !default;
-$gray-darker:            #312222 !default; // #222
-$gray-dark:              #44332e !default;   // #333
-$gray:                   #837373 !default; // #555
-$gray-light:             #a6a397 !default;   // #999
-$gray-lighter:           #f1eddb !default; // #eee
+$gray-base:              #000 !default;
+$gray-darker:            #222 !default; // #222
+$gray-dark:              #333 !default;   // #333
+$gray:                   #555 !default; // #555
+$gray-light:             #999 !default;   // #999
+$gray-lighter:           #fff !default; // #eee
 
-$brand-primary:         #bf4d28 !default;
+$brand-primary:         #33a6d9 !default;
 $brand-success:         #17b84c !default;
 $brand-info:            #51c1c5 !default;
 $brand-warning:         #e19c23 !default;
@@ -70,7 +70,7 @@ $border-width: 1px !default;
 // Settings for the `<body>` element.
 
 $body-bg:    $gray-lighter !default;
-$body-color: $gray-dark !default;
+$body-color: $gray-base !default;
 
 
 // Links

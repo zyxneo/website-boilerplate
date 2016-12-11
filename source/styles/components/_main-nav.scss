@@ -1,4 +1,12 @@
 
+@import "../helpers/functions";
+
+.header__banner {
+  padding-bottom: 20%;
+  background: image-url("mosonmagyarovar.jpg") no-repeat 50% 0;
+  background-size: cover;
+}
+
 .main-nav {
   font-family: $font-family-serif;
   font-variant: small-caps;

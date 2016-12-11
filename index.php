@@ -113,6 +113,7 @@ else {
         <!--<META HTTP-EQUIV="Refresh" CONTENT="0;URL=ShowErrorPage.html">-->
       </noscript>
 
+      <div class="header__banner"></div>
 
 		<nav class="navbar navbar-full navbar-dark bg-inverse main-nav">
 			<div class="container<?php echo ($fluidContainer ? '-fluid' : ''); ?>">
@@ -133,9 +134,9 @@ else {
 						<!-- Joomla NavBar End-->
 					<?php endif; ?>
 
-					<?php if ($this->countModules('header-search')) : ?>
+					<!--<?php if ($this->countModules('header-search')) : ?>
 						<jdoc:include type="modules" name="header-search" style="none" />
-					<?php endif; ?>
+					<?php endif; ?>-->
 
 				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->
@@ -145,12 +146,6 @@ else {
 
 	<!-- Body -->
 	<div class="body">
-
-		<?php if ($this->countModules('carusel')) : ?>
-			<!-- carusel Start -->
-			<jdoc:include type="modules" name="carusel" />
-			<!-- carusel End -->
-		<?php endif; ?>
 
 		<?php if ($this->countModules('banner')) : ?>
 			<!-- banner Start -->
@@ -245,6 +240,12 @@ else {
 		<jdoc:include type="modules" name="user4" style="xhtml" />
 		<!-- user4 End -->
 	<?php endif; ?>
+
+  <?php if ($this->countModules('carusel')) : ?>
+    <!-- carusel Start -->
+    <jdoc:include type="modules" name="carusel" />
+    <!-- carusel End -->
+  <?php endif; ?>
 
 	<!-- Footer starts -->
 	<footer class="footer" role="contentinfo">
