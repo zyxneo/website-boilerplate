@@ -10,7 +10,7 @@
 defined('_JEXEC') or die;
 
 $app = JFactory::getApplication();
-$doc =& JFactory::getDocument();
+$doc = JFactory::getDocument();
 $templateparams = $app->getTemplate(true)->params;
 $images = json_decode($this->item->images);
 $urls = json_decode($this->item->urls);
@@ -29,10 +29,7 @@ $sitename = $app->get('sitename');
 $email = $app->getCfg('mailfrom');
 $fb_app_id = $app->getCfg('facebook_app_id');
 $fb_admins = $app->getCfg('facebook_admins');
-$twitter_creator = $app->getCfg('twitter_creator');
-$googleplus = false; // TODO
 $language  = $doc->language;
-
 
 if (isset($images->image_intro) and !empty($images->image_intro)) {
   $timage= htmlspecialchars(JURI::root().$images->image_intro);
@@ -53,7 +50,14 @@ if (@getimagesize($timage)) {
 
 
 $doc->addCustomTag( '
-    <meta property="og:title" content="'.substr($this->escape($this->item->title), 0, 40).'"/>
+    <meta name="twitter:title" content="'.$this->escape($this->item->title).'">
+    <meta name="twitter:card" content="'.$profilImage.'">
+    <meta name="twitter:site" content="@Bernathju">
+    <meta name="twitter:creator" content="@Bernathju">
+    <meta name="twitter:url" content="'.str_replace('" ','&quot;',JURI::current()).'">
+    <meta name="twitter:description" content="'.strip_tags($this->item->introtext).'">
+    <meta name="twitter:image" content="'.$timage.'">
+    <meta property="og:title" content="'.$this->escape($this->item->title).'"/>
     <meta property="og:type" content="article"/>
     <meta property="og:email" content="'.$email.'"/>
     <meta property="og:url" content="'.str_replace('" ','&quot;',juri::current()).'">
@@ -62,34 +66,13 @@ $doc->addCustomTag( '
     <meta property="og:image:height" content="'.$imageHeight.'"/>
     <meta property="og:site_name" content="'.$sitename.'"/>
     <meta property="og:locale" content="'.$language.'"/>
-    <meta property="og:description" content="'.substr(strip_tags($this->item->introtext), 0, 300).'"/>
+    <meta property="fb:admins" content="'.$fb_admins.'"/>
+    <meta property="fb:app_id" content="'.$fb_app_id.'"/>
+    <meta property="og:description" content="'.strip_tags($this->item->introtext).'"/>
     <meta property="article:published_time" content="'.$this->item->publish_up.'"/>
     <meta property="article:author" content="'.$this->item->author.'"/>
     <meta property="article:section" content="'.$this->escape($this->item->category_title).'"/>
 ');
-
-// facebook
-if ($fb_app_id != "") {
-$doc->addCustomTag( '
-    <meta property="fb:app_id" content="'.$fb_app_id.'"/>
-');
-}
-if ($fb_admins != "") {
-$doc->addCustomTag( '
-    <meta property="fb:admins" content="'.$fb_admins.'"/>
-');
-}
-if ($twitter_creator != "") {
-$doc->addCustomTag( '
-    <meta name="twitter:title" content="'.substr($this->escape($this->item->title), 0, 40).'">
-    <meta name="twitter:card" content="'.$profilImage.'">
-    <meta name="twitter:site" content="'.$twitter_creator.'">
-    <meta name="twitter:creator" content="'.$twitter_creator.'">
-    <meta name="twitter:url" content="'.str_replace('" ','&quot;',JURI::current()).'">
-    <meta name="twitter:description" content="'.substr(strip_tags($this->item->introtext), 0, 300).'">
-    <meta name="twitter:image" content="'.$timage.'">
-');
-}
 
 
 if (!empty($this->item->tags->itemTags)) {
@@ -285,17 +268,11 @@ if (!empty($this->item->pagination) AND $this->item->pagination AND $this->item-
 		</ul>
 <?php endif; ?>
 
-<?php if ($twitter_creator != "" AND $fb_app_id != "" AND $googleplus) : ?>
 <ul class="list-inline social">
-
-    <?php if ($twitter_creator != "") : ?>
     <li class="list-inline-item twitter">
       <a href="https://twitter.com/share" class="twitter-share-button" data-via="bernatju" data-related="bernatju" data-dnt="true">Tweet</a>
       <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
     </li>
-    <?php endif; ?>
-
-    <?php if ($fb_app_id != "") : ?>
     <li class="list-inline-item facebook">
       <div
         class="fb-like"
@@ -303,13 +280,9 @@ if (!empty($this->item->pagination) AND $this->item->pagination AND $this->item-
         data-layout="button_count">
       </div>
     </li>
-    <?php endif; ?>
-    <?php if ($googleplus != "") : ?>
     <li class="list-inline-item google">
         <div class="g-plus" data-action="share" data-annotation="none"></div>
     </li>
-    <?php endif; ?>
 </ul>
-<?php endif; ?>
 
 </article>
