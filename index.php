@@ -24,6 +24,7 @@ $this->direction = $doc->direction;
 $sitename = $app->get('sitename');
 $google_map_api = $app->getCfg('google_map_api');
 $google_verify = $app->getCfg('google_verify');
+$google_analytics = $app->getCfg('google_analytics');
 $fb_app_id = $app->getCfg('facebook_app_id');
 $ENV = $app->getCfg('ENV');
 
@@ -76,7 +77,7 @@ else {
     <![endif]-->
 
 	<!-- use your own! -->
-	<meta name="verify-v1" content="<?php echo $google_verify; ?>" />
+	<meta name="google-site-verification" content="<?php echo $google_verify; ?>" />
 
 	<link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i|Open+Sans:400,400i,700,700i&amp;subset=latin-ext" rel="stylesheet">
 
@@ -283,16 +284,16 @@ else {
     <script src="<?php echo JUri::root(true); ?>/templates/bs4/build/scripts/main.js"></script>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-	<script>
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-		ga('create', '<?php echo $google_map_api; ?>', 'auto');
-		ga('send', 'pageview');
+  ga('create', '<?php echo $google_analytics; ?>', 'auto');
+  ga('send', 'pageview');
 
-	</script>
+</script>
 
 	<?php if ($ENV = 'test') : ?>
     <!-- Livereload -->
