@@ -113,8 +113,6 @@ else {
         <!--<META HTTP-EQUIV="Refresh" CONTENT="0;URL=ShowErrorPage.html">-->
       </noscript>
 
-      <div class="header__banner"></div>
-
 		<nav class="navbar navbar-full navbar-dark bg-inverse main-nav">
 			<div class="container<?php echo ($fluidContainer ? '-fluid' : ''); ?>">
 				<!-- Brand and toggle get grouped for better mobile display -->
