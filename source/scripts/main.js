@@ -7,6 +7,9 @@ $( document ).ready(function() {
     // js-cookie
     // https://github.com/js-cookie/js-cookie/tree/v2.1.2#readme
 
+    // init
+    $('.parallax').parallax();
+
     // function for "The website uses cookies." bar
     if($('#cookie-message')) {
         if(Cookies.get('accept-cookies')) {

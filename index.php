@@ -278,6 +278,7 @@ else {
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <script src="<?php echo JUri::root(true); ?>/templates/bs4/build/scripts/vendor/tether.min.js"></script>
+    <script src="<?php echo JUri::root(true); ?>/templates/bs4/build/scripts/vendor/parallax.js"></script>
     <script src="<?php echo JUri::root(true); ?>/templates/bs4/build/scripts/bootstrap.min.js"></script>
     <script src="<?php echo JUri::root(true); ?>/templates/bs4/build/scripts/main.js"></script>
 
