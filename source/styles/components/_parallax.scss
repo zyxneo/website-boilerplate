@@ -12,17 +12,17 @@
     &__wrapper {
         overflow: hidden;
         position: relative;
-        height: 300px;
+        height: 38vw;
     }
 
     &__scroll {
         bottom: 0;
         left: 50%;
-        min-height: 100%;
+        min-height: 56vw;
         min-width: 100%;
         position: absolute;
         transform: translateX(-50%);
-
+        margin-left: -1px;
     }
 
     &--map {

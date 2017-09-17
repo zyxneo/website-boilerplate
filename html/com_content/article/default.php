@@ -50,13 +50,6 @@ if (@getimagesize($timage)) {
 
 
 $doc->addCustomTag( '
-    <meta name="twitter:title" content="'.$this->escape($this->item->title).'">
-    <meta name="twitter:card" content="'.$profilImage.'">
-    <meta name="twitter:site" content="@Bernathju">
-    <meta name="twitter:creator" content="@Bernathju">
-    <meta name="twitter:url" content="'.str_replace('" ','&quot;',JURI::current()).'">
-    <meta name="twitter:description" content="'.strip_tags($this->item->introtext).'">
-    <meta name="twitter:image" content="'.$timage.'">
     <meta property="og:title" content="'.$this->escape($this->item->title).'"/>
     <meta property="og:type" content="article"/>
     <meta property="og:email" content="'.$email.'"/>
@@ -66,8 +59,6 @@ $doc->addCustomTag( '
     <meta property="og:image:height" content="'.$imageHeight.'"/>
     <meta property="og:site_name" content="'.$sitename.'"/>
     <meta property="og:locale" content="'.$language.'"/>
-    <meta property="fb:admins" content="'.$fb_admins.'"/>
-    <meta property="fb:app_id" content="'.$fb_app_id.'"/>
     <meta property="og:description" content="'.strip_tags($this->item->introtext).'"/>
     <meta property="article:published_time" content="'.$this->item->publish_up.'"/>
     <meta property="article:author" content="'.$this->item->author.'"/>
@@ -267,22 +258,5 @@ if (!empty($this->item->pagination) AND $this->item->pagination AND $this->item-
 		<?php endif; ?>
 		</ul>
 <?php endif; ?>
-
-<ul class="list-inline social">
-    <li class="list-inline-item twitter">
-      <a href="https://twitter.com/share" class="twitter-share-button" data-via="bernatju" data-related="bernatju" data-dnt="true">Tweet</a>
-      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-    </li>
-    <li class="list-inline-item facebook">
-      <div
-        class="fb-like"
-        data-share="true"
-        data-layout="button_count">
-      </div>
-    </li>
-    <li class="list-inline-item google">
-        <div class="g-plus" data-action="share" data-annotation="none"></div>
-    </li>
-</ul>
 
 </article>

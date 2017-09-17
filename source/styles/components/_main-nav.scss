@@ -1,18 +1,40 @@
 
 @import "../helpers/functions";
 
-.header__banner {
-  padding-bottom: 20%;
-  background: image-url("mosonmagyarovar.jpg") no-repeat 50% 0;
-  background-size: cover;
-}
 
 .main-nav {
-  font-family: $font-family-serif;
-  font-variant: small-caps;
+  text-transform: uppercase;
+  font-size: 14px;
+  padding: 0;
+
+  .nav-item + .nav-item {
+    margin: 0;
+  }
+
+  .nav-link {
+    transition: background-color .2s;
+    padding: 10px 15px;
+
+    &:hover {
+      background: $brand-primary;
+    }
+
+    &.active {
+      background: $brand-primary;
+    }
+  }
+
+  .dropdown-menu {
+    padding: 0;
+    font-size: 14px;
+  }
+
+  .dropdown-item {
+    padding: 0;
+  }
 }
 
-include media-breakpoint-up(sm) {
+@include media-breakpoint-up(sm) {
   .dropdown:hover .dropdown-menu {
       display: block;
   }
@@ -21,3 +43,4 @@ include media-breakpoint-up(sm) {
 .dropdown-menu {
   margin: 0;
 }
+

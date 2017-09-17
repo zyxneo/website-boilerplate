@@ -13,13 +13,15 @@ $gray-darker:            #222 !default; // #222
 $gray-dark:              #333 !default;   // #333
 $gray:                   #555 !default; // #555
 $gray-light:             #999 !default;   // #999
-$gray-lighter:           #fff !default; // #eee
+$gray-lighter:           #bbb !default; // #eee
+$gray-lightest:          #ddd !default;
+$white:                  #fff !default;
 
-$brand-primary:         #33a6d9 !default;
+$brand-primary:         #0061a1 !default;
 $brand-success:         #17b84c !default;
 $brand-info:            #51c1c5 !default;
-$brand-warning:         #e19c23 !default;
-$brand-danger:          #d9534f !default;
+$brand-warning:         #fbbc1e !default;
+$brand-danger:          #da251c !default;
 $brand-inverse:             $gray-base !default;
 
 // Options
@@ -27,7 +29,7 @@ $brand-inverse:             $gray-base !default;
 // Quickly modify global styling by enabling or disabling optional features.
 
 $enable-flex:               true !default;
-$enable-rounded:            true !default;
+$enable-rounded:            false !default;
 $enable-shadows:            false !default;
 $enable-gradients:          false !default;
 $enable-transitions:        true !default;
@@ -719,7 +721,7 @@ $breadcrumb-item-padding:       .5rem !default;
 $breadcrumb-bg:                 none !default;
 $breadcrumb-divider-color:      $gray-light !default;
 $breadcrumb-active-color:       $gray-light !default;
-$breadcrumb-divider:            "/" !default;
+$breadcrumb-divider:            "»" !default;
 
 
 // Media objects

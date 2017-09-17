@@ -118,7 +118,7 @@ else {
 			<div class="container<?php echo ($fluidContainer ? '-fluid' : ''); ?>">
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">
-					<button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#navbar-main-menu" aria-controls="navbar-main-menu" aria-expanded="false" aria-label="Toggle navigation">
+					<button class="navbar-toggler hidden-md-up bg-inverse" type="button" data-toggle="collapse" data-target="#navbar-main-menu" aria-controls="navbar-main-menu" aria-expanded="false" aria-label="Toggle navigation">
 						&#9776;
 					</button>
 				</div>
@@ -149,9 +149,7 @@ else {
 		<?php if ($this->countModules('banner')) : ?>
 			<!-- banner Start -->
 			<div class="banner">
-				<div class="container<?php echo ($fluidContainer ? '-fluid' : ''); ?>">
-					<jdoc:include type="modules" name="banner" />
-				</div>
+				<jdoc:include type="modules" name="banner" style="none" />
 			</div>
 			<!-- banner End -->
 		<?php endif; ?>

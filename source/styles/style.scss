@@ -2,12 +2,14 @@
 @import "custom";
 @import "bootstrap/bootstrap";
 
+@import "components/video";
 @import "components/article";
 @import "components/carousel";
 @import "components/cookie-message";
 @import "components/font-icons";
 @import "components/main-nav";
 @import "components/parallax";
+@import "components/sponsors";
 
 @import "helpers/functions";
 
@@ -16,12 +18,13 @@
 
 @import "themes/styleguide";
 
-// testing
-/*
+
 body {
-    background: image-url("test.png") no-repeat 50% 0;
+    background: $white;
 }
 
+// testing
+/*
 // test autoprefixter
 :fullscreen a {
     display: flex

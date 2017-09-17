@@ -14,3 +14,42 @@
         background: $gray-lighter;
     }
 }
+
+.var-ialb {
+  padding-bottom: 66%;
+  background: image-url("var-ialb.jpg") no-repeat;
+  background-size: cover;
+}
+
+.panorama {
+  position: relative;
+  overflow: hidden;
+
+  img {
+    position: relative;
+    width: 100%;
+    height: auto;
+    filter: saturate(1.2);
+    z-index: -1;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 150px;
+  }
+
+  &::before {
+    top: 0;
+    background: linear-gradient(to bottom, $brand-primary 5%, transparent 100%);
+  }
+
+  &::after {
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent 5%, $white 100%);
+  }
+}

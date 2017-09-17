@@ -2,11 +2,9 @@
     overflow: hidden;
     background-color: #fff;
     color: $gray;
-    border-top: 5px solid $brand-primary;
 
     &__articles {
         padding: 20px 0;
-        background-color: $gray-darker;
         color: $gray;
 
         .container {
@@ -26,7 +24,8 @@
     &__bottom {
         padding: 20px 0;
         overflow: hidden;
-        border-top: 2px solid darken($gray-base, 5);
+        background-color: $gray-lightest;
+        border-top: 5px solid $gray-lighter;
         font-size: 13px;
     }
 }

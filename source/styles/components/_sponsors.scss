@@ -1,0 +1,25 @@
+.sponsors {
+  margin: 30px -10px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  &__item {
+    display: flex;
+    padding: 10px;
+    flex: 0 0 20%;
+  }
+
+  &__link {
+    display: block;
+    margin: auto;
+  }
+
+  &__img {
+    max-width: 100%;
+    height: auto;
+    max-height: 150px;
+  }
+}
