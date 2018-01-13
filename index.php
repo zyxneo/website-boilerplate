@@ -133,9 +133,9 @@ else {
 						<!-- Joomla NavBar End-->
 					<?php endif; ?>
 
-					<!--<?php if ($this->countModules('header-search')) : ?>
+					<?php if ($this->countModules('header-search')) : ?>
 						<jdoc:include type="modules" name="header-search" style="none" />
-					<?php endif; ?>-->
+					<?php endif; ?>
 
 				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->

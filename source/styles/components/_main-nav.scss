@@ -34,6 +34,16 @@
   }
 }
 
+div.mod-languages {
+  float: right;
+  margin: 8px 0;
+
+  img {
+    width: 22px;
+    border: 1px solid $gray-dark !important;
+  }
+}
+
 @include media-breakpoint-up(sm) {
   .dropdown:hover .dropdown-menu {
       display: block;
