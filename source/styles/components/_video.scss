@@ -1,17 +1,25 @@
 
 @import "../helpers/functions";
 
-.banner {
-  position: relative;
+.video-background {
+  margin-bottom: 40px;
 }
 
-.custom_video-content {
-  position: absolute;
-  top: 0;
-  right: 5%;
-  bottom: 0;
-  width: 33%;
-  background: rgba(0, 0, 0, 0.3);
-  color: #fff;
-  padding: 1rem;
+@media (min-width: 992px) {
+
+  .banner {
+    position: relative;
+  }
+
+  .custom_video-content {
+    position: absolute;
+    top: 0;
+    right: 5%;
+    bottom: 0;
+    width: 33%;
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    padding: 1rem;
+  }
+
 }
